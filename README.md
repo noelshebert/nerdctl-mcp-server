@@ -19,5 +19,14 @@ In addition, the most current version of Podman was not easily available on Ubun
 my distribution of choice. 
 
 Now, Docker has a working rootless mode. I still don't use it because I just don't.
-I do use Podman most of time, however I still use Nerdctl on my main server and it's 
+I do use Podman most of the time, however I still use Nerdctl on my main server and it's 
 fun just to be able to say "I use nerdctl, by-the-way!" ;-)
+
+I am actively learning all things AI, especially integrating it into my workflow. Most
+AI assistive tools make use of MCP (Model Context Protocol) servers and a Podman server
+has already done by Marc Nuri (manusa). Why not Nerdctl?
+
+TODO:  Expand this README with installation instructions, configuraton instructions
+for Claude Code and Gemini (to name two) and provide formal release targets for Mac 
+and Windows. Comment the crap out of the code (for my own benefit) and add some new
+features...
