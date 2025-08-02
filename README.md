@@ -7,7 +7,9 @@ with all the non-Go stuff stripped away. To be fair, most of the work put into
 this fork has been to find/replace any mention of Podman/Docker with Nerdctl.
 As Nerdctl like Podman has a command-line API copied from the Docker CLI, this
 was not difficult. There was some cleanup of syntax of inline descriptions to
-make sense, and removal of comments referring to Podman documentation.
+make sense, and removal of comments referring to Podman documentation. Lastly,
+code hygene offered by the Go LSP (interface{} replaced by any for example) 
+were applied.
 
 WHY?
 
