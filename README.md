@@ -1,6 +1,6 @@
-# nerdctl-mcp-server
+## nerdctl-mcp-server
 
-MCP Server for Nerdctl coded in Go
+### MCP Server for Nerdctl coded in Go
 
 nerdctl-mcp-server is a fork of podman-mcp-server (<https://github.com/manusa/podman-mcp-server>)
 with all the non-Go stuff stripped away. To be fair, most of the work put into
@@ -11,22 +11,58 @@ make sense, and removal of comments referring to Podman documentation. Lastly,
 code hygiene offered by the Go LSP (interface{} replaced by any for example)
 were applied.
 
-WHY?
+### Why Nerdctl?
 
-Well, the answer is historical. I started using Nerdctl as a rootless alternative
-to Docker (which was not ready at the time) and Podman at that time was flakey.
-In addition, the most current version of Podman was not readily available on Ubuntu,
-my distribution of choice.
+Well, the answer is historical. I started using Nerdctl a number of years ago as
+a rootless alternative to Docker (which was not ready at the time) and Podman
+at that time was flakey. In addition, the most current version of Podman was not
+readily available on Ubuntu, my distribution of choice.
 
 Now, Docker has a working rootless mode. I still don't use it because I just don't.
 I do use Podman most of the time, however I still use Nerdctl on my main server
 and it's fun just to be able to say "I use nerdctl, by-the-way!" ;-)
 
-I am actively learning all things AI, especially integrating it into my workflow.
+I am actively learning all things AI, especially integrating it into my workflows.
 Most AI assistive tools make use of MCP (Model Context Protocol) servers and a
 Podman server has already done by Marc Nuri (manusa). Why not Nerdctl?
 
-TODO:  Expand this README with installation instructions, configuration instructions
-for Claude Code and Gemini (to name two) and provide formal release targets for Mac
-and Windows. Comment the crap out of the code (for my own benefit) and add some new
-features...
+### Prerequisites
+
+At its heart, nerdctl-mcp-server is essentially a command wrapper around a selected
+set of nerdctl commands. In order for the MCP server to be useful, nerdctl must be
+already installed on the machine running the server. You should also have Go installed.
+Lastly, it is necessary to have some variation of make installed. To be honest, I
+do not use MacOS (darwin), so I am expecting that it is reasonably close to Linux.
+I proactively avoid Windows in all its forms so make of that what you will.
+
+### Building and installing nerdctl-mcp-server
+
+Building the binary for nerdctl-mcp-server is straight forward. Just use the
+included Makefile. If unsure just:
+
+```
+make help
+```
+
+Building for your specific platform should be as simple as:
+
+```
+make build
+```
+
+If still unsure, there is always:
+
+```
+make build-all-platforms
+```
+
+Using the multi-platform capability of Go, it will build binaries for
+arm64/amd64 Linux, arm64/amd64 MacOS (darwin) and arm64/amd65 Windows.
+
+After the binary has been build, simply copy the binary to a folder/directory
+that is in your $PATH.
+
+### Trying out nerdctl-mcp-server
+
+A very handy tool that every developer of, or user of MCP Servers should be
+aware of is mcp-inspector. <https://github.com/modelcontextprotocol/inspector>.

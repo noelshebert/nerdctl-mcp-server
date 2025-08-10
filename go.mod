@@ -1,6 +1,8 @@
 module github.com/noelshebert/nerdctl-mcp-server
 
-go 1.24.5
+go 1.23.0
+
+toolchain go1.24.6
 
 require (
 	github.com/mark3labs/mcp-go v0.36.0
